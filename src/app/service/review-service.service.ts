@@ -8,9 +8,11 @@ import { Review } from '../model/review';
 })
 export class ReviewServiceService {
 
+  
+username: string;
   constructor(private http: HttpClient) { }
   public findAll(): Observable<Review[]>{
-    return this.http.get<Review[]>("http://localhost:8787/review/view");
+    return this.http.get<Review[]>("http://localhost:8888/review/view/"+this.username);
   }
   public deleteReview(id){
     return this.http.delete("http://localhost:8888/review/delete/"+id);

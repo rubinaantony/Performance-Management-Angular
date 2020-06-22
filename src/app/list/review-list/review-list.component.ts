@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Review } from 'src/app/model/review';
 import { ReviewServiceService } from 'src/app/service/review-service.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { LoginService } from 'src/app/login.service';
 
 @Component({
   selector: 'app-review-list',
@@ -11,12 +12,11 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ReviewListComponent implements OnInit {
 
   reviews:Review[];
-  constructor(private reviewService: ReviewServiceService) { }
+  constructor(private reviewService: ReviewServiceService,private _service : LoginService) { }
 
   ngOnInit() {
-    this.reviewService.findAll().subscribe(data =>{
-      this.reviews = data;
-    });
+    console.log(this.getUsername()+"bvvb");
+    this.reloadData();
   }
   deleteReview(m_id){
     console.log(m_id)
@@ -27,6 +27,9 @@ export class ReviewListComponent implements OnInit {
     this.reviewService.findAll().subscribe(dt=>this.reviews=dt);
   }
 
+  getUsername(){
+    return this.reviewService.username;
+  }
 updateForm=new FormGroup({
     m_id:new FormControl(''),
     m_reviewed:new FormControl(''),

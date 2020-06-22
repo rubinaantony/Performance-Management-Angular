@@ -10,14 +10,13 @@ import { Login } from './model/login';
   providedIn: 'root'
 })
 export class LoginService {
-
   
 constructor(private _http : HttpClient) { }
 
   
-public loginUserFromRemote(login :Login):Observable<any>{
+public loginUserFromRemote(login :Login):Observable<Login>{
     
-return this._http.post<any>("http://localhost:8888/login",login)
+return this._http.post<Login>("http://localhost:8888/login",login)
 
   }
 }
