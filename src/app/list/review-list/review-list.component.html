@@ -1,0 +1,69 @@
+<h1>REVIEW DETAILS</h1>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="updateForm">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Id</label>
+                    <input type="text" formControlName="m_id" class="form-control" id="exampleInputEmail1" >
+                    </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Reviewed Employeed</label>
+                <input type="text" formControlName="m_reviewed" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Message</label>
+                    <input type="text" formControlName="m_message" class="form-control" id="exampleInputEmail1" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Reviewing Person</label>
+                        <input type="text" formControlName="m_reviewing" class="form-control" id="exampleInputEmail1" >
+                        </div>
+              
+              <button type="button" (click)=" updateRvw()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+             
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+<table class="table table-dark">
+    <thead>
+      <tr>
+
+        <th scope="col">ID</th>
+        <th scope="col">Reviewed Person</th>
+        <th scope="col">Review</th>
+        <th scope="col">Reviewing Person</th>
+        <th scope="col">Action</th>
+        <th scope="col">Action</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of reviews">
+        <td>{{obj.m_id}}</td>
+        <td>{{obj.m_reviewed}}</td>
+        <td>{{obj.m_message}}</td>
+        <td>{{obj.m_reviewing}}</td>
+        <td><button type="button" (click)=" updateStudentForm(obj)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Update Review
+          </button></td>
+        <td><a (click)="deleteReview(obj.m_id)">Delete</a></td>
+      </tr>
+      
+    </tbody>
+  </table>

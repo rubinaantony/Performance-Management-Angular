@@ -1,0 +1,18 @@
+
+<br>
+<form (ngSubmit)="onSubmit()" >
+        <h1>REVIEW DETAILS</h1>
+    <div class="form-group ">
+        <label for="exampleInputEmail1"> Reviewing Person</label>
+        <input type="text" [(ngModel)]="rvw.m_reviewed" class="form-control"  name="m_reviewed"  placeholder="Enter Employee Number">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1"> Message</label>
+        <input type="text" [(ngModel)]="rvw.m_message" class="form-control"  name="m_message"  placeholder="Enter Employee Name">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1"> Reviwed By</label>
+        <input type="text" [(ngModel)]="rvw.m_reviewing" class="form-control"  name="m_reviewing"  placeholder="Enter Username">
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

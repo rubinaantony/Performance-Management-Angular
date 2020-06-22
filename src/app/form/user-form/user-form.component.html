@@ -1,0 +1,41 @@
+
+<br>
+<form (ngSubmit)="onSubmit()" >
+  <small class="text-danger">{{msg}}</small>
+        <h1>EMPLOYEE DETAILS</h1>
+    <div class="form-group ">
+        <label for="exampleInputEmail1"> Employee Number</label>
+        <input type="text" [(ngModel)]="usr.e_number" class="form-control"  name="e_number"  placeholder="Enter Employee Number">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1"> Employee Name</label>
+        <input type="text" [(ngModel)]="usr.e_name" class="form-control"  name="e_name"  placeholder="Enter Employee Name">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1"> Userame</label>
+        <input type="text" [(ngModel)]="usr.e_username" class="form-control"  name="e_username"  placeholder="Enter Username">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1">Password</label>
+        <input type="text" [(ngModel)]="usr.e_password" class="form-control"  name="e_password"  placeholder="Enter Password">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1"> Address</label>
+        <input type="text" [(ngModel)]="usr.e_address" class="form-control"  name="e_address"  placeholder="Enter Address">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1"> Mobile</label>
+        <input type="text" [(ngModel)]="usr.e_mobile" class="form-control"  name="e_mobile"  placeholder="Enter Mobile">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputEmail1"> Email</label>
+        <input type="text" [(ngModel)]="usr.e_email" class="form-control"  name="e_email"  placeholder="Enter Email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Role</label>
+        Admin <input type="radio"  value="admin" name="e_role" [(ngModel)]="usr.e_role"> 
+        Employee<input type="radio" value="employee" name="e_role" [(ngModel)]="usr.e_role">
+      </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
