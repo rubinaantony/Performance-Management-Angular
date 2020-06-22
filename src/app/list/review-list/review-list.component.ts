@@ -3,6 +3,7 @@ import { Review } from 'src/app/model/review';
 import { ReviewServiceService } from 'src/app/service/review-service.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from 'src/app/login.service';
+import { Login } from 'src/app/model/login';
 
 @Component({
   selector: 'app-review-list',
@@ -12,6 +13,7 @@ import { LoginService } from 'src/app/login.service';
 export class ReviewListComponent implements OnInit {
 
   reviews:Review[];
+  login = new Login();
   constructor(private reviewService: ReviewServiceService,private _service : LoginService) { }
 
   ngOnInit() {
@@ -24,7 +26,12 @@ export class ReviewListComponent implements OnInit {
      
   }
   reloadData(){
-    this.reviewService.findAll().subscribe(dt=>this.reviews=dt);
+    if(this.login.role=="admin"){
+      this.reviewService.findAll().subscribe(dt=>this.reviews=dt);
+    }
+    else{
+      this.reviewService.findAllReview().subscribe(dt=>this.reviews=dt);
+    }
   }
 
   getUsername(){

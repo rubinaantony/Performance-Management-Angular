@@ -11,6 +11,10 @@ export class ReviewServiceService {
   
 username: string;
   constructor(private http: HttpClient) { }
+  
+  public findAllReview(): Observable<Review[]>{
+    return this.http.get<Review[]>("http://localhost:8888/review/view");
+  }
   public findAll(): Observable<Review[]>{
     return this.http.get<Review[]>("http://localhost:8888/review/view/"+this.username);
   }
