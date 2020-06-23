@@ -30,6 +30,7 @@ updateForm=new FormGroup({
     m_feedback:new FormControl('')
   });
 
+//------------------set the values to update form------------------
   updateFeedbackForm(review:Review){
     console.log(review);
     this.updateForm.setValue({
@@ -40,7 +41,9 @@ updateForm=new FormGroup({
       m_feedback:review.m_feedback,
     });
     }
-    
+ //-----------------------------END----------------------------------
+
+ //---------------------------Calls the save method to update the values-------------
     updateRvw(){
       this.reviews=this.updateForm.value;
       console.log(this.reviews);

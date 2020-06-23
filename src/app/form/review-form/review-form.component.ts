@@ -17,13 +17,14 @@ export class ReviewFormComponent implements OnInit {
 
   ngOnInit() {
   }
+  //-----------------------On submit of button calls the function addreview() to insert reviews------------------
 onSubmit(){
   this.reviewservice.addReview(this.rvw).subscribe(data=>{
     this.gotolist();
 
   });
-
 }
+ //---------------------------------After adding review control navigated to review list----------------
 gotolist(){
   this.router.navigate(['/reviews'])
 }

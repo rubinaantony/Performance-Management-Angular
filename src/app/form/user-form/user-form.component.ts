@@ -22,6 +22,7 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {}
   onSubmit() {
+     //------------checks if the username is already existing if so a error message is shown or else data is inserted
     this.userservice.addEmployee(this.usr).subscribe(data => {
       if (data.e_username != null) {
         this.gotolist();

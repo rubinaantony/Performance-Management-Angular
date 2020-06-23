@@ -6,8 +6,9 @@ import { Review } from '../model/review';
 @Injectable({
   providedIn: 'root'
 })
-export class ReviewServiceService {
 
+//-----------------------------Sending API request---------------------------
+export class ReviewServiceService {
   
 username: string;
   constructor(private http: HttpClient) { }

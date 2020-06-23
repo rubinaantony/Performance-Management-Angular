@@ -13,16 +13,19 @@ export class UserListComponent implements OnInit {
   users:User[];
   constructor(private userService: UserServiceService) { }
 
+//-----------------------------Function to fetchthe details of all the employees---------------
   ngOnInit() {
     this.userService.findAll().subscribe(data =>{
       this.users = data;
     });
   }
+
+  //-----------------------------Function to delete employees----------------------
   deleteEmployee(e_id){
     console.log(e_id)
     this.userService.deleteEmployee(e_id).subscribe(rst=>{this.reloadData();});
-     
   }
+  //--------------------------------END------------------------------------
   reloadData(){
     this.userService.findAll().subscribe(dt=>this.users=dt);
   }
@@ -39,6 +42,7 @@ updateForm=new FormGroup({
     e_role:new FormControl('')
   });
 
+  //-----------------------------Set values to update employee form---------------------
   updateStudentForm(user:User){
     console.log(user);
     this.updateForm.setValue({
@@ -53,10 +57,13 @@ updateForm=new FormGroup({
       e_role:user.e_role,
     });
     }
-    
+    //-----------------------------------END-----------------------------
+
+      //-----------------------------Updates the values of employee details---------------------
     updateUsr(){
       this.users=this.updateForm.value;
       console.log(this.users);
       this.userService.save(this.updateForm.value).subscribe(result=>{this.reloadData();});
   }
+  //-----------------------------------END------------------------------
 }

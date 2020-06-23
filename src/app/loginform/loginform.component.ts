@@ -19,6 +19,7 @@ setUsername(username:string){
   console.log(this.reviewService.username+"ghg");
 }
 
+//Checks the user credentials and role and redirects based on the role-----------------------------
   loginUser(){
     this._service.loginUserFromRemote(this.login).subscribe(
       data=>{

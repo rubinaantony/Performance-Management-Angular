@@ -20,11 +20,17 @@ export class ReviewListComponent implements OnInit {
     console.log(this.getUsername()+"bvvb");
     this.reloadData();
   }
+
+  //------------------------To delete a review----------------------
   deleteReview(m_id){
     console.log(m_id)
     this.reviewService.deleteReview(m_id).subscribe(rst=>{this.reloadData();});
      
   }
+
+  //-----------------------------------END---------------------------
+
+  //------------------------Modifying the review view based on the users-------------
   reloadData(){
     if(this.login.role=="admin"){
       this.reviewService.findAll().subscribe(dt=>this.reviews=dt);
@@ -44,6 +50,7 @@ updateForm=new FormGroup({
     m_reviewing:new FormControl('')
   });
 
+  //--------------------------------Set values to review update form -----------------
   updateStudentForm(review:Review){
     console.log(review);
     this.updateForm.setValue({
@@ -53,10 +60,13 @@ updateForm=new FormGroup({
       m_reviewing:review.m_reviewing,
     });
     }
-    
+  //-----------------------------END----------------------------------
+  
+  //------------------------------To save the updated values--------------
     updateRvw(){
       this.reviews=this.updateForm.value;
       console.log(this.reviews);
       this.reviewService.save(this.updateForm.value).subscribe(result=>{this.reloadData();});
   }
+  //---------------------------END----------------------------
 }

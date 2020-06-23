@@ -6,6 +6,8 @@ import { User } from '../model/user';
 @Injectable({
   providedIn: 'root'
 })
+
+//-----------------------------Sending API request---------------------------
 export class UserServiceService {
 
   constructor(private http: HttpClient) { }
